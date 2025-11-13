@@ -5,3 +5,6 @@ project:
 format:
   revealjs:
     theme: default
+    transition: fade           # none | fade | slide | convex | concave | zoom
+    background-transition: fade
+    transition-speed: slow     # default | fast | slow
