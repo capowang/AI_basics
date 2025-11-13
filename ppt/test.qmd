@@ -1,0 +1,65 @@
+---
+title: "大模型厂商分布"
+format:
+  revealjs:
+    theme: default
+    transition: slide
+    output-file: test.html
+    output-dir: ../docs/ppt
+---
+
+
+## 厂商→大模型分布图 {.smaller}
+
+```{python}
+#| echo: false
+import plotly.graph_objects as go
+
+# 定义厂商和对应的大模型数据
+labels = [
+    "所有厂商",
+    "OpenAI", "Anthropic", "Google", "Meta", "百度", "阿里巴巴", "腾讯", "字节跳动",
+    "GPT-4", "GPT-3.5", "Claude 3", "Claude 2", 
+    "Gemini Pro", "PaLM 2", "Llama 3", "Llama 2",
+    "文心一言 4.0", "文心一言 3.5", "通义千问", "通义千问-Plus",
+    "混元", "混元-Pro", "云雀", "豆包"
+]
+
+parents = [
+    "",
+    "所有厂商", "所有厂商", "所有厂商", "所有厂商", "所有厂商", "所有厂商", "所有厂商", "所有厂商",
+    "OpenAI", "OpenAI", "Anthropic", "Anthropic",
+    "Google", "Google", "Meta", "Meta",
+    "百度", "百度", "阿里巴巴", "阿里巴巴",
+    "腾讯", "腾讯", "字节跳动", "字节跳动"
+]
+
+values = [
+    24,  # 总计
+    2, 2, 2, 2, 2, 2, 2, 2,  # 各厂商
+    1, 1, 1, 1,  # OpenAI, Anthropic 的模型
+    1, 1, 1, 1,  # Google, Meta 的模型
+    1, 1, 1, 1,  # 百度, 阿里巴巴 的模型
+    1, 1, 1, 1   # 腾讯, 字节跳动 的模型
+]
+
+fig = go.Figure(go.Sunburst(
+    labels=labels,
+    parents=parents,
+    values=values,
+    branchvalues="total",
+    marker=dict(
+        colorscale='RdYlBu',
+        cmid=12
+    ),
+    textfont=dict(size=14)
+))
+
+fig.update_layout(
+    margin=dict(t=10, l=10, r=10, b=10),
+    height=600,
+    width=900
+)
+
+fig.show()
+```
