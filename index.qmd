@@ -1,11 +1,6 @@
 ---
 title: "大模型厂商分布"
-format:
-  revealjs:
-    theme: default
-    transition: slide
-    output-file: test.html
-    output-dir: ../docs/ppt
+format: revealjs
 ---
 
 
